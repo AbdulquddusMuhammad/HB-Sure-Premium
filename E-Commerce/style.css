@@ -620,6 +620,11 @@ footer .follow i:hover, footer a:hover {
 
 @media (max-width: 799px) {
 
+    * {
+        -webkit-text-stroke: 1px transparent;
+    }
+
+    
     .section-p1 {
         padding: 40px 40px;
     }
@@ -672,11 +677,11 @@ footer .follow i:hover, footer a:hover {
     }
 
     #hero {
-        height: 70vh;
+        height: 98vh;
         padding: 0 80px;
         background-position: top 30% right 30%;
     }
-
+    
     #featured {
         justify-content: center;
     }
