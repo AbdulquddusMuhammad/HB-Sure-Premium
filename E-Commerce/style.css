@@ -621,7 +621,7 @@ footer .follow i:hover, footer a:hover {
 @media (max-width: 799px) {
 
     * {
-        -webkit-text-stroke: 1px transparent;
+        -webkit-text-stroke: 1px transparent !important;
     }
 
     
