@@ -809,4 +809,12 @@ footer .follow i:hover, footer a:hover {
     footer .copyright {
         margin: auto;
     }
+
+    #sm-banner h2 {
+        line-height: normal;
+    }
+
+    #sm-banner .banner-box button {
+        padding: 5px 18px;
+    }
 }
