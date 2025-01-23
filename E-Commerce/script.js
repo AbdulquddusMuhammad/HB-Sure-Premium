@@ -10,6 +10,31 @@ const pop_up = document.querySelector(".pop-up");
 
 const pop_up_des = document.querySelector(".product-description");
 
+// the destination for the url gotten from d_img_of_prd_to_b_bought
+let image_for_buyer = document.querySelector(".image-of-product-to-buy");
+
+let d_img_of_prd_to_b_bought;
+
+//
+const closeOrdering = document.querySelector(".ordering .fa-solid.fa-xmark");
+
+// ordering button
+const order_now = document.querySelector(".order-button");
+
+// the buyers pop up container
+const buyers_pop_container = document.querySelector(".buyers-form-pop-up");
+
+// the buyers pop up form
+const buyers_pop_form = document.querySelector(".buyer-form");
+
+//send buyers info or request
+const sendbtn = document.querySelector(".send-button");
+
+closeOrdering.addEventListener("click", () => {
+  console.log("clicked");
+  pop_up.style.display = "none";
+});
+
 if (bars) {
   bars.addEventListener("click", () => {
     navBars.classList.add("active");
@@ -41,6 +66,7 @@ window.onload = () => {
     product_card[i].addEventListener("click", (event) => {
       let card_image = card_clicked.querySelector("img");
       let card_image_url = card_image.getAttribute("src");
+      d_img_of_prd_to_b_bought = card_image.getAttribute("src");
       let pop_image = ordering.querySelector(".product-image");
       let pop_title = ordering.querySelector(".product-title");
       let cardTitle = card_clicked.querySelector("h5").innerHTML;
@@ -54,13 +80,54 @@ window.onload = () => {
       pop_image.style.backgroundImage = `url("${card_image_url}")`;
       pop_up.style.display = "block";
       ordering.style.display = "block";
-      console.log("click");
     });
   }
 };
 
+// product information pop up
 pop_up.addEventListener("click", (eve) => {
   if (eve.target.classList.contains("pop-up")) {
     pop_up.style.display = "none";
   }
+});
+
+let f_name;
+let phone_num;
+let quantity;
+
+// gets the buyers forms input
+function go() {
+  f_name = document.querySelector("#buyers-name").value;
+  phone_num = document.querySelector("#buyers-phone-number").value;
+  quantity = document.querySelector("#amount-needed").value;
+
+  console.log(f_name);
+  console.log(phone_num);
+  console.log(quantity);
+}
+
+// pop for users form when order now is clicked
+order_now.addEventListener("click", () => {
+  pop_up.style.display = "none";
+  buyers_pop_container.classList.add("buyers-form-pop-up-available");
+  console.log(d_img_of_prd_to_b_bought);
+  image_for_buyer.style.backgroundImage = `url("${d_img_of_prd_to_b_bought}")`;
+
+  document.querySelector("#buyers-name").value = "";
+  document.querySelector("#buyers-phone-number").value = "";
+  document.querySelector("#amount-needed").value = "";
+});
+
+// buyer pop container
+buyers_pop_container.addEventListener("click", (event) => {
+  buyers_pop_container.classList.remove("buyers-form-pop-up-available");
+});
+
+// buyer pop up
+buyers_pop_form.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+sendbtn.addEventListener("click", () => {
+  go();
 });

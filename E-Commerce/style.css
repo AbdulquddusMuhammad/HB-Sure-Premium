@@ -296,10 +296,6 @@ body {
   height: 200px;
   border-radius: 20px;
   object-fit: cover;
-  width: 100%;
-  height: 200px;
-  border-radius: 20px;
-  object-fit: cover;
 }
 
 #product1 .pro .des {
@@ -636,6 +632,10 @@ footer a:hover {
   top: 0;
 }
 
+.product-description {
+  font-family: "Montserrat", sans-serif;
+}
+
 .ordering {
   width: 50vw;
   height: 100vh;
@@ -648,6 +648,8 @@ footer a:hover {
   right: 0rem;
   z-index: 11111;
   padding: 1rem;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .product-container {
@@ -659,7 +661,7 @@ footer a:hover {
 
 .top-part {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
 }
@@ -667,14 +669,14 @@ footer a:hover {
 .top-part span {
   font-weight: 700;
   text-align: left;
-  margin-left: 1rem;
+  margin-left: 0rem;
   margin-top: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .product-image {
-  width: 300px;
-  height: 300px;
+  width: 210px;
+  height: 210px;
   /* border: 1px solid red; */
   border-radius: 8px;
   background-image: url("./img/100-pure-moisturizer-edited-768x1023.jpeg");
@@ -683,14 +685,14 @@ footer a:hover {
 }
 
 .product-description {
-  width: 500px;
+  width: 100%;
   height: fit-content;
   /* border: 1px solid red; */
   border-radius: 8px;
 }
 
 .ordering button {
-  padding: 2rem;
+  padding: 1rem;
   margin-top: 3rem;
   border-radius: 1rem;
   font-size: 1.5rem;
@@ -699,6 +701,74 @@ footer a:hover {
   animation-iteration-count: infinite;
 }
 
+.buyers-form-pop-up {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #00000045;
+  top: 0;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  z-index: 999;
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.buyers-form-pop-up-available {
+  display: flex;
+}
+
+.buyer-form {
+  background-color: #dad5d5;
+  width: 500px;
+  height: 400px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.buyer-form .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.send-button {
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+.buyer-form .form div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.buyer-form div input {
+  height: 2rem;
+}
+
+.product-to-buy {
+  position: relative;
+  height: 352px;
+  width: 226px;
+}
+
+.image-of-product-to-buy {
+  /* background-image: url("./img/images from ms  habibat/hair Magic 2.jpg"); */
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background-size: cover;
+  bottom: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+}
 @keyframes oozing {
   0% {
     scale: 1;
@@ -931,5 +1001,20 @@ footer a:hover {
     font-size: 2rem;
     background-size: 20rem;
     margin-top: 7rem;
+  }
+
+  .ordering {
+    width: 100vw;
+    height: 70vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    top: calc(100vh - 70vh);
+  }
+
+  .ordering .fa-solid.fa-xmark {
+    position: absolute;
+    font-size: 2rem;
+    right: 1rem;
+    top: 1rem;
   }
 }
