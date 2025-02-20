@@ -30,6 +30,15 @@ const buyers_pop_form = document.querySelector(".buyer-form");
 //send buyers info or request
 const sendbtn = document.querySelector(".send-button");
 
+//////////////////////
+let nameOfPro = "";
+/////////////////////
+
+///////////////
+const nameOnForm = document.querySelector("#name-of-product");
+console.log(nameOnForm.value);
+////////////
+
 closeOrdering.addEventListener("click", () => {
   console.log("clicked");
   pop_up.style.display = "none";
@@ -60,7 +69,7 @@ if (close) {
 // }
 
 window.onload = () => {
-  console.log(product_card.length);
+  // console.log(product_card.length);
   for (i = 0; i < product_card.length; i++) {
     let card_clicked = product_card[i];
     product_card[i].addEventListener("click", (event) => {
@@ -71,7 +80,11 @@ window.onload = () => {
       let pop_title = ordering.querySelector(".product-title");
       let cardTitle = card_clicked.querySelector("h5").innerHTML;
       let card_description = card_clicked.querySelector(".pro-des");
-      console.log(card_description);
+      ////////////////////////////
+      nameOfPro = card_clicked.querySelector("h5");
+      console.log(nameOfPro.innerHTML);
+      ////////////////////////////
+      // console.log(card_description);
       let card_des_text = card_description.innerHTML;
       pop_up_des.innerHTML = card_des_text;
       // product = product-description.innerHTML;
@@ -104,10 +117,12 @@ function go() {
   console.log(f_name);
   console.log(phone_num);
   console.log(quantity);
+  console.log(nameOfPro);
 }
 
 // pop for users form when order now is clicked
 order_now.addEventListener("click", () => {
+  nameOnForm.value = nameOfPro.innerHTML;
   pop_up.style.display = "none";
   buyers_pop_container.classList.add("buyers-form-pop-up-available");
   console.log(d_img_of_prd_to_b_bought);

@@ -724,7 +724,7 @@ footer a:hover {
 .buyer-form {
   background-color: #dad5d5;
   width: 500px;
-  height: 400px;
+  height: auto;
   padding: 1.5rem;
   border-radius: 10px;
   display: grid;
@@ -746,7 +746,12 @@ footer a:hover {
 .buyer-form .form div {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+
+.buyer-form * {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .buyer-form div input {
